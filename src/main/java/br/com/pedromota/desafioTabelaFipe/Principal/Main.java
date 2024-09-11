@@ -31,6 +31,7 @@ public class Main {
             String endereco;
             if(resp.equalsIgnoreCase("sair")){
                 System.out.println("Finalizando programa... ");
+                break;
             }
             if(resp.toLowerCase().contains("carr")){
                 endereco = ENDERECO + "carros/marcas";
@@ -55,7 +56,7 @@ public class Main {
             modelosCarro.modelos().stream()
                     .sorted(Comparator.comparing(Dados::codigo))
                     .forEach(System.out::println);
-        } while (resp.equalsIgnoreCase("sair"));
+        } while (!resp.toLowerCase().equalsIgnoreCase("sair"));
     }
 
 }
