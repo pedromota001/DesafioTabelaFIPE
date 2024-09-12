@@ -9,6 +9,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Main {
     private final String ENDERECO = "https://parallelum.com.br/fipe/api/v1/";
@@ -56,6 +57,12 @@ public class Main {
             modelosCarro.modelos().stream()
                     .sorted(Comparator.comparing(Dados::codigo))
                     .forEach(System.out::println);
+            System.out.println("Digite o trecho de um modelo: ");
+            String trechoCarro = scanner.nextLine();
+            modelosCarro.modelos().stream()
+                    .filter(d -> d.nome().toLowerCase().contains(trechoCarro))
+                    .forEach(System.out::println);
+
         } while (!resp.toLowerCase().equalsIgnoreCase("sair"));
     }
 
