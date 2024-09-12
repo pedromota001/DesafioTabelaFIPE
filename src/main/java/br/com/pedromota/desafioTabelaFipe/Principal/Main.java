@@ -64,7 +64,7 @@ public class Main {
                     .filter(d -> d.nome().toLowerCase().contains(trechoCarro.toLowerCase()))
                     .forEach(System.out::println);
 
-            System.out.println("Digite o modelo do veiculo que voce deseja ver: ");
+            System.out.println("Digite o codigo do modelo do veiculo que voce deseja ver: ");
             var codigoModelo = scanner.nextLine();
             endereco = endereco + "/" + codigoModelo + "/anos";
             var jsonAnosVeiculo = consomeDados.obterDados(endereco);
@@ -74,7 +74,7 @@ public class Main {
             for(int i = 0; i < anos.size(); i++){
                 var enderecoVeiculoAnos = endereco + "/" + anos.get(i).codigo();
                 json = consomeDados.obterDados(enderecoVeiculoAnos);
-                Veiculo veiculo = converteDados.converteDados(json, Veiculo.class);
+                var veiculo = converteDados.converteDados(json, Veiculo.class);
                 listaVeiculos.add(veiculo);
             }
 
